@@ -15,3 +15,10 @@ if uploaded_file:
 
 question = st.text_input("Ask interview questions:")
 
+if st.button("Generate Answer"):
+    if question:
+        context = retrieve(question)
+        answer = generate_answer(context, question)
+
+        st.subheader("Answer:")
+        st.write(answer)
